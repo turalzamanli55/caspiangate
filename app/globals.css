@@ -104,3 +104,20 @@ button:hover {
   background: rgba(255,255,255,0.2);
   border-radius: 10px;
 }
+
+/* PREMIUM CARD HOVER */
+.group:hover img {
+  transform: scale(1.12);
+}
+
+/* SOFT GLOW */
+.soft-glow {
+  box-shadow: 0 40px 120px rgba(255,255,255,0.1);
+}
+
+/* TITLE GRADIENT */
+.text-gradient {
+  background: linear-gradient(180deg, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

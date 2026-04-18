@@ -34,18 +34,24 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full flex justify-between items-center px-8 py-4 z-50 glass">
-        <h1 className="text-lg font-semibold tracking-wide">
-          Caspian Gate
-        </h1>
+<nav className="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-5 backdrop-blur-2xl bg-black/40 border-b border-white/10">
 
-        <div className="space-x-8 text-sm text-gray-300 hidden md:block">
-          <a href="#" className="hover:text-white transition">Home</a>
-          <a href="#products" className="hover:text-white transition">Products</a>
-          <a href="#about" className="hover:text-white transition">About</a>
-          <a href="#contact" className="hover:text-white transition">Contact</a>
-        </div>
-      </nav>
+  <h1 className="text-xl font-semibold tracking-wider">
+    Caspian Gate
+  </h1>
+
+  <div className="hidden md:flex gap-10 text-sm text-gray-400">
+    <a href="#" className="hover:text-white transition">Home</a>
+    <a href="#products" className="hover:text-white transition">Products</a>
+    <a href="#about" className="hover:text-white transition">About</a>
+    <a href="#contact" className="hover:text-white transition">Contact</a>
+  </div>
+
+  <button className="px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition text-sm">
+    Get in touch
+  </button>
+
+</nav>
 
       {/* HERO */}
       <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
@@ -95,39 +101,53 @@ export default function Home() {
 
       </section>
 
-      {/* PRODUCTS */}
-      <section id="products" className="py-32 px-6 text-center">
-        <h2 className="text-4xl font-semibold mb-16 reveal">Products</h2>
+{/* PRODUCTS */}
+<section id="products" className="py-40 px-6 text-center relative">
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+  {/* BACK LIGHT */}
+  <div className="absolute w-[600px] h-[600px] bg-white/5 blur-[140px] rounded-full top-20 left-1/2 -translate-x-1/2" />
 
-          {[
-             { img: "/chicken1.jpg", title: "Fresh Chicken" },
-            { img: "/chicken2.jpg", title: "Frozen Products" },
-            { img: "/chicken3.jpg", title: "Bulk Supply" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="reveal group overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:shadow-[0_20px_60px_rgba(255,255,255,0.1)] transition"
-            >
+  <h2 className="text-5xl font-semibold mb-20 text-gradient reveal">
+    Products
+  </h2>
 
-              <img
-                src={item.img}
-                className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
-              />
+  <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
 
-              <div className="p-6 text-left">
-                <h3 className="text-xl font-medium">{item.title}</h3>
-                <p className="text-gray-400">
-                  High-quality poultry products
-                </p>
-              </div>
+    {[
+      { img: "/chicken1.jpg", title: "Fresh Chicken" },
+      { img: "/chicken2.jpg", title: "Frozen Products" },
+      { img: "/chicken3.jpg", title: "Bulk Supply" },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="relative group reveal overflow-hidden rounded-3xl border border-white/10 bg-black"
+      >
 
-            </div>
-          ))}
+        {/* IMAGE */}
+        <img
+          src={item.img}
+          className="w-full h-96 object-cover group-hover:scale-110 transition duration-700"
+        />
 
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition" />
+
+        {/* GLOW */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-white/10 to-transparent" />
+
+        {/* TEXT */}
+        <div className="absolute bottom-0 p-8 text-left">
+          <h3 className="text-2xl font-semibold">{item.title}</h3>
+          <p className="text-gray-400 mt-2 text-sm">
+            Premium quality poultry products
+          </p>
         </div>
-      </section>
+
+      </div>
+    ))}
+
+  </div>
+</section>
 
       {/* ABOUT */}
       <section id="about" className="py-32 px-6 text-center max-w-3xl mx-auto reveal">
