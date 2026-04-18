@@ -87,7 +87,7 @@ export default function Home() {
       <section className="py-32 px-6 text-center max-w-3xl mx-auto reveal">
         <h2 className="text-4xl mb-6">About</h2>
         <p className="text-gray-400 text-lg">
-          Caspian Gate is a modern poultry company delivering innovation and reliability.
+          Caspian Gate 2026 is a modern poultry company delivering innovation and reliability.
         </p>
       </section>
 
