@@ -1,30 +1,77 @@
 @import "tailwindcss";
 
+/* ROOT COLORS */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* DARK MODE */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
+/* SMOOTH SCROLL */
 html {
   scroll-behavior: smooth;
 }
 
+/* BODY STYLE (PREMIUM) */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* FADE ANIMATION */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fade 1.2s ease forwards;
+}
+
+/* CARD GLOW EFFECT */
+.card-glow:hover {
+  box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+}
+
+/* BUTTON SMOOTH */
+button {
+  transition: all 0.3s ease;
+}
+
+/* INPUT STYLE */
+input,
+textarea {
+  outline: none;
+}
+
+/* SCROLLBAR (APPLE STYLE) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
 }
