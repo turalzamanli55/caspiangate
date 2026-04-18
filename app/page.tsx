@@ -179,14 +179,65 @@ export default function Home() {
       <section id="contact" className="py-32 px-6 text-center">
         <h2 className="text-4xl font-semibold mb-8 reveal">Contact Us</h2>
 
-        <form className="max-w-xl mx-auto space-y-4 reveal">
-          <input placeholder="Your Name" className="w-full p-4 bg-white/5 border border-white/10 rounded-xl" />
-          <input placeholder="Your Email" className="w-full p-4 bg-white/5 border border-white/10 rounded-xl" />
-          <textarea placeholder="Message" className="w-full p-4 bg-white/5 border border-white/10 rounded-xl" />
-          <button className="w-full py-4 bg-white text-black rounded-xl font-semibold">
-            Send Message
-          </button>
-        </form>
+        <form
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      alert("✅ Message sent successfully!");
+      form.reset();
+    } else {
+      alert("❌ Error sending message");
+    }
+  }}
+  className="max-w-xl mx-auto space-y-4 reveal"
+>
+
+  <input
+    name="name"
+    type="text"
+    placeholder="Your Name"
+    required
+    className="w-full p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-lg focus:border-white/30 outline-none"
+  />
+
+  <input
+    name="email"
+    type="email"
+    placeholder="Your Email"
+    required
+    className="w-full p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-lg focus:border-white/30 outline-none"
+  />
+
+  <textarea
+    name="message"
+    placeholder="Message"
+    required
+    rows={5}
+    className="w-full p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-lg focus:border-white/30 outline-none"
+  />
+
+  <button className="w-full py-4 bg-white text-black rounded-xl font-semibold hover:scale-[1.02] transition">
+    Send Message
+  </button>
+
+</form>
       </section>
 
       {/* FOOTER */}
