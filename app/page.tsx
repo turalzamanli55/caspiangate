@@ -34,29 +34,26 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
 
       {/* NAVBAR */}
-<nav className="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-5 backdrop-blur-2xl bg-black/40 border-b border-white/10">
+      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-5 backdrop-blur-2xl bg-black/40 border-b border-white/10">
+        <h1 className="text-xl font-semibold tracking-wider">
+          Caspian Gate
+        </h1>
 
-  <h1 className="text-xl font-semibold tracking-wider">
-    Caspian Gate
-  </h1>
+        <div className="hidden md:flex gap-10 text-sm text-gray-400">
+          <a href="#" className="hover:text-white transition">Home</a>
+          <a href="#products" className="hover:text-white transition">Products</a>
+          <a href="#about" className="hover:text-white transition">About</a>
+          <a href="#contact" className="hover:text-white transition">Contact</a>
+        </div>
 
-  <div className="hidden md:flex gap-10 text-sm text-gray-400">
-    <a href="#" className="hover:text-white transition">Home</a>
-    <a href="#products" className="hover:text-white transition">Products</a>
-    <a href="#about" className="hover:text-white transition">About</a>
-    <a href="#contact" className="hover:text-white transition">Contact</a>
-  </div>
-
-  <button className="px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition text-sm">
-    Get in touch
-  </button>
-
-</nav>
+        <button className="px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition text-sm">
+          Get in touch
+        </button>
+      </nav>
 
       {/* HERO */}
       <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
 
-        {/* BG */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-900 to-black" />
 
         {/* MOUSE LIGHT */}
@@ -74,10 +71,9 @@ export default function Home() {
         {/* CENTER GLOW */}
         <div className="absolute w-[500px] h-[500px] bg-white/10 blur-[140px] rounded-full top-1/3 left-1/2 -translate-x-1/2" />
 
-        {/* CONTENT */}
         <div className="relative z-10 px-6 animate-fade">
 
-          <h1 className="text-6xl md:text-8xl font-semibold tracking-tight text-gradient">
+          <h1 className="text-6xl md:text-8xl font-semibold tracking-tight leading-tight text-gradient">
             Caspian Gate
           </h1>
 
@@ -101,53 +97,64 @@ export default function Home() {
 
       </section>
 
-{/* PRODUCTS */}
-<section id="products" className="py-40 px-6 text-center relative">
+      {/* PRODUCTS */}
+      <section id="products" className="py-40 px-6 text-center relative">
 
-  {/* BACK LIGHT */}
-  <div className="absolute w-[600px] h-[600px] bg-white/5 blur-[140px] rounded-full top-20 left-1/2 -translate-x-1/2" />
+        <h2 className="text-5xl font-semibold mb-20 text-gradient reveal">
+          Products
+        </h2>
 
-  <h2 className="text-5xl font-semibold mb-20 text-gradient reveal">
-    Products
-  </h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-  <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          {/* BIG CARD */}
+          <div className="md:col-span-2 group relative overflow-hidden rounded-3xl reveal hover:scale-[1.01] transition duration-500">
 
-    {[
-      { img: "/chicken1.jpg", title: "Fresh Chicken" },
-      { img: "/chicken2.jpg", title: "Frozen Products" },
-      { img: "/chicken3.jpg", title: "Bulk Supply" },
-    ].map((item, i) => (
-      <div
-        key={i}
-        className="relative group reveal overflow-hidden rounded-3xl border border-white/10 bg-black"
-      >
+            <img
+              src="/chicken1.jpg"
+              className="w-full h-[500px] object-cover group-hover:scale-105 transition duration-700"
+            />
 
-        {/* IMAGE */}
-        <img
-          src={item.img}
-          className="w-full h-96 object-cover group-hover:scale-110 transition duration-700"
-        />
+            <div className="absolute inset-0 bg-black/40" />
 
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition" />
+            <div className="absolute bottom-0 p-10 text-left">
+              <h3 className="text-3xl font-semibold">Fresh Chicken</h3>
+              <p className="text-gray-300 mt-2">
+                Premium quality daily processed poultry
+              </p>
+            </div>
 
-        {/* GLOW */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-white/10 to-transparent" />
+          </div>
 
-        {/* TEXT */}
-        <div className="absolute bottom-0 p-8 text-left">
-          <h3 className="text-2xl font-semibold">{item.title}</h3>
-          <p className="text-gray-400 mt-2 text-sm">
-            Premium quality poultry products
-          </p>
+          {/* SMALL CARDS */}
+          <div className="flex flex-col gap-8">
+
+            {[
+              { img: "/chicken2.jpg", title: "Frozen Products" },
+              { img: "/chicken3.jpg", title: "Bulk Supply" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative overflow-hidden rounded-3xl reveal"
+              >
+
+                <img
+                  src={item.img}
+                  className="w-full h-[240px] object-cover group-hover:scale-110 transition duration-700"
+                />
+
+                <div className="absolute inset-0 bg-black/40" />
+
+                <div className="absolute bottom-0 p-6 text-left">
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
         </div>
-
-      </div>
-    ))}
-
-  </div>
-</section>
+      </section>
 
       {/* ABOUT */}
       <section id="about" className="py-32 px-6 text-center max-w-3xl mx-auto reveal">
@@ -203,7 +210,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="py-12 text-center text-gray-500 text-sm border-t border-white/10">
-        ©️ 2026 Caspian Gate. All rights reserved.
+        © 2026 Caspian Gate. All rights reserved.
       </footer>
 
     </main>
