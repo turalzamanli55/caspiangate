@@ -3,7 +3,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full flex justify-between items-center px-8 py-4 z-50 backdrop-blur-xl bg-white/5 border-b border-white/10">
+      <nav className="fixed top-0 w-full flex justify-between items-center px-8 py-4 z-50 glass border-b border-white/10">
         <h1 className="text-lg font-semibold tracking-wide">
           Caspian Gate
         </h1>
@@ -17,31 +17,30 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      {/* HERO */}
-<section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
 
-  {/* GRADIENT BACKGROUND */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-900 to-black"></div>
+        {/* BG */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-900 to-black"></div>
 
-  {/* LIGHT EFFECT */}
-  <div className="absolute w-[500px] h-[500px] bg-white/10 blur-[120px] rounded-full top-1/4 left-1/2 -translate-x-1/2"></div>
+        {/* GLOW */}
+        <div className="absolute w-[700px] h-[700px] glow blur-3xl opacity-40"></div>
 
-  {/* CONTENT */}
-  <div className="relative z-10 animate-fade px-6">
-    <h1 className="text-6xl md:text-7xl font-semibold tracking-tight">
-      Caspian Gate
-    </h1>
+        <div className="relative z-10 animate-fadeUp px-6">
 
-    <p className="mt-6 text-gray-400 text-lg">
-      Premium poultry production in Azerbaijan & Iraq
-    </p>
+          <h1 className="text-6xl md:text-7xl font-semibold tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+            Caspian Gate
+          </h1>
 
-    <button className="mt-8 px-8 py-3 bg-white text-black rounded-full font-medium hover:scale-105 transition">
-      Contact Us
-    </button>
-  </div>
+          <p className="mt-6 text-gray-400 text-lg max-w-xl mx-auto">
+            Premium poultry production in Azerbaijan & Iraq
+          </p>
 
-</section>
+          <button className="mt-10 px-10 py-4 rounded-full bg-white text-black font-medium hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition">
+            Contact Us
+          </button>
+
+        </div>
+      </section>
 
       {/* PRODUCTS */}
       <section className="py-32 px-6 text-center">
@@ -56,12 +55,12 @@ export default function Home() {
           ].map((item, i) => (
             <div
               key={i}
-              className="group overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:shadow-[0_20px_60px_rgba(255,255,255,0.1)] transition"
+              className="group overflow-hidden rounded-2xl glass border border-white/10 hover:scale-[1.02] transition duration-500"
             >
 
               <img
                 src={item.img}
-                className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
+                className="w-full h-80 object-cover group-hover:scale-110 transition duration-700"
               />
 
               <div className="p-6 text-left">
@@ -94,7 +93,7 @@ export default function Home() {
         <div className="flex justify-center">
           <iframe
             src="https://maps.google.com/maps?q=Azerbaijan&t=&z=5&ie=UTF8&iwloc=&output=embed"
-            className="w-full max-w-4xl h-96 rounded-2xl border border-gray-800"
+            className="w-full max-w-4xl h-96 rounded-2xl border border-white/10"
           />
         </div>
       </section>
@@ -108,21 +107,21 @@ export default function Home() {
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full p-3 bg-white/5 border border-white/10 rounded-lg backdrop-blur-lg"
+            className="w-full p-4 glass border border-white/10 rounded-xl outline-none focus:border-white/30"
           />
 
           <input
             type="email"
             placeholder="Your Email"
-            className="w-full p-3 bg-white/5 border border-white/10 rounded-lg backdrop-blur-lg"
+            className="w-full p-4 glass border border-white/10 rounded-xl outline-none focus:border-white/30"
           />
 
           <textarea
             placeholder="Message"
-            className="w-full p-3 bg-white/5 border border-white/10 rounded-lg backdrop-blur-lg"
+            className="w-full p-4 glass border border-white/10 rounded-xl outline-none focus:border-white/30"
           />
 
-          <button className="w-full py-3 bg-white text-black rounded-lg font-semibold hover:scale-[1.02] transition">
+          <button className="w-full py-4 bg-white text-black rounded-xl font-semibold hover:scale-[1.02] transition">
             Send Message
           </button>
 
@@ -130,8 +129,8 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 text-center text-gray-500 text-sm">
-        © 2026 Caspian Gate. All rights reserved.
+      <footer className="py-12 text-center text-gray-500 text-sm border-t border-white/10">
+        ©️ 2026 Caspian Gate. All rights reserved.
       </footer>
 
     </main>
