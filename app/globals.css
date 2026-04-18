@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
-/* ================= ROOT ================= */
+/* BASE */
 :root {
   --background: #000000;
   --foreground: #ffffff;
 }
 
-/* ================= BASE ================= */
 html {
   scroll-behavior: smooth;
 }
@@ -19,24 +18,37 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= GLASS ================= */
+/* GLASS */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.04);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* ================= GLOW BACKGROUND ================= */
-.glow {
-  background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 60%);
+/* HERO LIGHT */
+.hero-light {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+  filter: blur(140px);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* ================= FADE ANIMATION ================= */
+/* TEXT GRADIENT */
+.text-gradient {
+  background: linear-gradient(to bottom, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* FADE ANIMATION */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(60px);
   }
   to {
     opacity: 1;
@@ -44,54 +56,46 @@ body {
   }
 }
 
-.animate-fadeUp {
-  animation: fadeUp 1.2s ease forwards;
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
 }
 
-/* ================= SMOOTH HOVER ================= */
-.hover-lift {
-  transition: all 0.4s ease;
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 0.8s ease;
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px) scale(1.02);
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ================= CARD PREMIUM ================= */
-.card-premium {
+/* CARD */
+.card {
   background: rgba(255,255,255,0.03);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.08);
-  transition: all 0.4s ease;
+  transition: 0.4s;
 }
 
-.card-premium:hover {
+.card:hover {
+  transform: scale(1.03);
   box-shadow: 0 30px 80px rgba(255,255,255,0.1);
-  transform: scale(1.02);
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 button {
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 button:hover {
   transform: scale(1.05);
 }
 
-/* ================= INPUT ================= */
-input,
-textarea {
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  border-color: rgba(255,255,255,0.3);
-}
-
-/* ================= SCROLLBAR (APPLE STYLE) ================= */
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -99,23 +103,4 @@ textarea:focus {
 ::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.2);
   border-radius: 10px;
-}
-
-/* ================= TEXT GRADIENT ================= */
-.text-gradient {
-  background: linear-gradient(to bottom, #ffffff, #aaaaaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ================= HERO LIGHT ================= */
-.hero-light {
-  position: absolute;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
-  filter: blur(120px);
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
 }
