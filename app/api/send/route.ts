@@ -7,9 +7,9 @@ export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
-    await resend.emails.send({
-      from: "onboarding@resend.dev", // sonra dəyişəcəyik
-      to: "Commercial@caspiangate.org",
+    const data = await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: ["Commercial@caspiangate.org"],
       subject: "New Message from Website",
       html: `
         <h2>New Contact Message</h2>
@@ -20,9 +20,12 @@ export async function POST(req: Request) {
       `,
     });
 
+    console.log("EMAIL SENT:", data);
+
     return NextResponse.json({ success: true });
 
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }
